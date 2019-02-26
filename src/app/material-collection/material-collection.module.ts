@@ -20,7 +20,8 @@ import { MatButtonModule } from '@angular/material/button'
     MatListModule,
     MatCardModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule
   ]
 })
 export class MaterialCollectionModule {}

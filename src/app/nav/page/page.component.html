@@ -5,7 +5,10 @@
        class="left"
        fxLayout="row"
        fxLayoutAlign="end center">
-    <mat-card class="app-card text-center">
+    <mat-card fxFlex.gt-md="40"
+              fxFlex="60"
+              fxFlex.lt-sm="100"
+              class="app-card text-center">
       <img mat-card-image
            class="logo"
            [src]="imageUrl">
@@ -19,21 +22,33 @@
           <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Related technologies
+                Related Technologies
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <mat-list>
+              <mat-list-item *ngFor="let item of ingredients">
+                <img class="logo"
+                     mat-list-icon
+                     [src]="item.imageUrl"
+                     alt="">
+                <h4 mat-line
+                    class="text-left">{{item.label}}</h4>
+              </mat-list-item>
+            </mat-list>
           </mat-expansion-panel>
         </mat-accordion>
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="right"
+  <div class="right pl-15p"
        fxFlex="50"
        fxLayout="row"
        fxLayoutAlign="start center"
-       fxFlexOffset="20">
-    <button class="view-btn"
+       fxFlexOffset="5">
+    <button mat-raised-button
+            class="view-btn"
             [ngStyle]="{'background-color': buttonColor}"
-            mat-raised-button>View</button>
+            (click)="open()">
+      View </button>
   </div>
 </div>
