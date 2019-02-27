@@ -3,7 +3,7 @@
                class="sidenav"
                fixedInViewport="true"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               mode="side">
+               [mode]="mode">
     <mat-nav-list>
       <a mat-list-item
          href="https://task.vystar.xyz">Task Manager</a>
@@ -14,7 +14,8 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content #scrollContainer>
-    <mat-toolbar #toolbar color="primary"
+    <mat-toolbar #toolbar
+                 color="primary"
                  fxLayout="row">
       <button type="button"
               aria-label="Toggle sidenav"

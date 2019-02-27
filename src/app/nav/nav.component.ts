@@ -8,8 +8,8 @@ import {
   OnInit
 } from '@angular/core'
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout'
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { Observable, Subject } from 'rxjs'
+import { map, tap, takeUntil } from 'rxjs/operators'
 import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll-core'
 import { DOCUMENT } from '@angular/common'
 import { MatSidenavContent } from '@angular/material'
@@ -20,6 +20,9 @@ import { MatSidenavContent } from '@angular/material'
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements AfterViewInit, OnInit {
+  kill$: Subject<any> = new Subject()
+
+  mode: string = 'side'
   @ViewChild('scrollContainer', { read: ElementRef }) scrollContainer: ElementRef
   @ViewChild('toolbar', { read: ElementRef }) toolbar: ElementRef
 
@@ -48,17 +51,34 @@ export class NavComponent implements AfterViewInit, OnInit {
     private breakpointObserver: BreakpointObserver,
     @Inject(DOCUMENT) private document: any,
     private pageScrollService: PageScrollService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private breakpoint: BreakpointObserver
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.breakpoint
+      .observe([`${Breakpoints.Handset}`, `${Breakpoints.Small}`])
+      .pipe(
+        tap(state => {
+          if (state.matches) {
+            this.mode = 'over'
+          } else {
+            this.mode = 'side'
+          }
+        }),
+        takeUntil(this.kill$)
+      )
+      .subscribe()
+  }
+
+  ngOnDestroy(): void {
+    this.kill$.next()
+    this.kill$.complete()
+  }
 
   ngAfterViewInit(): void {
-    console.log(this.scrollContainer)
     this.renderer.listen(this.scrollContainer.nativeElement, 'scroll', event => {
       const top = this.scrollContainer.nativeElement.scrollTop
-      console.log('scrolling', top)
-      console.log(this.toolbar)
 
       if (top > 200) {
         this.renderer.addClass(this.toolbar.nativeElement, 'scrolled-nav')

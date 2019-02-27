@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "ng-server": "ng serve --port 4205",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "npm run ng-server"
+    "dev": "npm run ng-server",
+    "start": "yarn install --production=false && yarn run build && yarn run install-server",
+    "install-server": "cd ./server && yarn install && cd ..",
+    "build": "ng build --prod",
+    "deploy": "pm2 deploy production"
   },
   "private": true,
   "dependencies": {
