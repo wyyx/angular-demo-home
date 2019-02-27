@@ -13,8 +13,8 @@
          href="https://fshop.vystar.xyz">Fruit Shop</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary"
+  <mat-sidenav-content #scrollContainer>
+    <mat-toolbar #toolbar color="primary"
                  fxLayout="row">
       <button type="button"
               aria-label="Toggle sidenav"
@@ -59,7 +59,7 @@
     <main>
       <div class="first-screen-container">
         <div class="content">
-          <button (click)="scrollIntoView(pages)"
+          <button (click)="scrollToAppsPage(scrollContainer)"
                   class="view-btn mat-elevation-z4"
                   mat-raised-button
                   color="primary">
@@ -67,9 +67,8 @@
           </button>
         </div>
       </div>
-      <div #pages>
-        <app-page #app1
-                  imageUrl="/assets/angular_logo.png"
+      <div id="app1">
+        <app-page imageUrl="/assets/angular_logo.png"
                   appName="Angular Task Manager"
                   buttonColor="#e02d3c"
                   [ingredients]="ngTaskIngredients"
@@ -79,6 +78,7 @@
                   buttonColor="#45BA86"
                   [ingredients]="vueMusicIngredients"
                   url="https://music.vystar.xyz"></app-page>
+
       </div>
     </main>
   </mat-sidenav-content>

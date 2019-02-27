@@ -4454,6 +4454,20 @@ neo-async@^2.5.0:
   resolved "http://registry.npm.taobao.org/neo-async/download/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha1-udFeTXHGdikIZUtRg+04t1M0CDU=
 
+ngx-page-scroll-core@6.0.0-beta.1:
+  version "6.0.0-beta.1"
+  resolved "http://registry.npm.taobao.org/ngx-page-scroll-core/download/ngx-page-scroll-core-6.0.0-beta.1.tgz#63935fde912c4370614ffde7089ad17956f2e672"
+  integrity sha1-Y5Nf3pEsQ3BhT/3nCJrReVby5nI=
+  dependencies:
+    tslib "^1.9.0"
+
+ngx-page-scroll@6.0.0-beta.1:
+  version "6.0.0-beta.1"
+  resolved "http://registry.npm.taobao.org/ngx-page-scroll/download/ngx-page-scroll-6.0.0-beta.1.tgz#db2b2343048adcaf5879d1d226b9753b004b3006"
+  integrity sha1-2ysjQwSK3K9YedHSJrl1OwBLMAY=
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "http://registry.npm.taobao.org/nice-try/download/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
