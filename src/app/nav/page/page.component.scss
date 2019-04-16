@@ -4,8 +4,10 @@
 }
 
 .container .view-btn {
-  transform: scale3d(1.7, 1.7, 1.7);
+  // transform: scale3d(1.5, 1.5, 1.5);
   color: white;
+  width: 6rem;
+  height: 3rem;
 }
 
 .app-card {
@@ -13,10 +15,16 @@
 }
 
 mat-list-item .logo {
-  border-radius: 0;
+  border-radius: 0 !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.tech-list-title {
+  margin: 0px;
 }

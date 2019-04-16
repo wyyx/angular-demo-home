@@ -14,28 +14,40 @@
   </mat-sidenav>
   <mat-sidenav-content #scrollContainer>
     <mat-toolbar #toolbar color="primary" fxLayout="row">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon *ngIf="!drawer.opened" aria-label="Side nav toggle icon">arrow_forward</mat-icon>
-        <mat-icon *ngIf="drawer.opened" aria-label="Side nav toggle icon">arrow_back</mat-icon>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon *ngIf="!drawer.opened" aria-label="Side nav toggle icon"
+          >arrow_forward</mat-icon
+        >
+        <mat-icon *ngIf="drawer.opened" aria-label="Side nav toggle icon"
+          >arrow_back</mat-icon
+        >
       </button>
-      <span class="px-20">CCWebLab</span>
+      <span class="pr-15">CCWebLab</span>
+
       <!-- gmail -->
-      <button mat-button class="title px-20" [matMenuTriggerFor]="menuGmail">
+      <button mat-button class="title px-15" [matMenuTriggerFor]="menuGmail">
         <i class="fab fa-google"></i>
       </button>
       <mat-menu #menuGmail="matMenu">
-        <span (click)="$event.stopPropagation()" class="px-10">jzwdyx@gmail.com</span>
+        <span (click)="$event.stopPropagation()" class="px-10"
+          >jzwdyx@gmail.com</span
+        >
       </mat-menu>
 
       <!-- github -->
-      <button class="title pl-20" mat-button>
+      <button class="title px-15" mat-button>
         <a href="https://github.com/wyyx"><i class="fab fa-github"></i></a>
       </button>
       <!-- wechat -->
-      <button mat-button class="title pl-20" [matMenuTriggerFor]="menuWeChat">
+      <button mat-button class="title px-15" [matMenuTriggerFor]="menuWeChat">
         <i class="fab fa-weixin"></i>
       </button>
-      <mat-menu #menuWeChat="matMenu">
+      <mat-menu #menuWeChat="matMenu" class="wechat">
         <img
           (click)="$event.stopPropagation()"
           class="wechat-info"

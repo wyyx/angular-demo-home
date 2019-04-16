@@ -1,38 +1,48 @@
-<div class="container p-30"
-     fxLayout="row"
-     fxLayoutAlign="center center">
-  <div fxFlex="50"
-       class="left"
-       fxLayout="row"
-       fxLayoutAlign="end center">
-    <mat-card fxFlex.gt-md="40"
-              fxFlex="60"
-              fxFlex.lt-sm="100"
-              class="app-card text-center">
-      <img mat-card-image
-           class="logo"
-           [src]="imageUrl">
+<div
+  class="container"
+  ngClass="p-30"
+  ngClass.lt-sm="p-20"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+  <div
+    fxFlex="50"
+    fxFlex.lt-sm="60"
+    class="left"
+    fxLayout="row"
+    fxLayoutAlign="end center"
+  >
+    <mat-card
+      fxFlex.gt-md="40"
+      fxFlex="60"
+      fxFlex.lt-sm="100"
+      class="app-card text-center p-20"
+    >
+      <img
+        mat-card-image
+        class="logo"
+        [src]="imageUrl"
+        [ngStyle]="{ margin: '0px', width: '98%', 'border-radius': '0px' }"
+      />
       <mat-card-content>
-        <h1 class="text-center">
-          {{appName}}
+        <h1 class="text-center mat-display-1">
+          {{ appName }}
         </h1>
       </mat-card-content>
       <mat-card-actions>
         <mat-accordion>
           <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                Related Technologies
+              <mat-panel-title fxLayout>
+                <h3 class="tech-list-title mat-h2">{{ techListTitle }}</h3>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-list>
               <mat-list-item *ngFor="let item of ingredients">
-                <img class="logo"
-                     mat-list-icon
-                     [src]="item.imageUrl"
-                     alt="">
-                <h4 mat-line
-                    class="text-left">{{item.label}}</h4>
+                <img class="logo" mat-list-icon [src]="item.imageUrl" alt="" />
+                <h4 mat-line class="text-left">
+                  {{ item.label }}
+                </h4>
               </mat-list-item>
             </mat-list>
           </mat-expansion-panel>
@@ -40,15 +50,25 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="right pl-15p"
-       fxFlex="50"
-       fxLayout="row"
-       fxLayoutAlign="start center"
-       fxFlexOffset="5">
-    <button mat-raised-button
-            class="view-btn"
-            [ngStyle]="{'background-color': buttonColor}"
-            (click)="open()">
-      View </button>
+  <div
+    class="right"
+    ngClass="pl-15p"
+    ngClass.lt-sm="pl-5p"
+    fxFlex="50"
+    fxFlex.lt-sm="40"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutAlign.lt-sm="center center"
+  >
+    <button
+      mat-raised-button
+      class="view-btn"
+      [ngStyle]="{
+        'background-color': buttonColor
+      }"
+      (click)="open()"
+    >
+      <span class="mat-title">View</span>
+    </button>
   </div>
 </div>
