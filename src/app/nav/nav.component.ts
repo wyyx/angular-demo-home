@@ -38,12 +38,13 @@ export class NavComponent implements AfterViewInit, OnInit, OnDestroy {
     { label: 'Sass', imageUrl: '/assets/sass_logo.png' }
   ]
 
-  ngOshopIngredients = [
+  vueMediumlyIngredients = [
     { label: 'JavaScript', imageUrl: '/assets/javascript_logo.png' },
     { label: 'TypeScript', imageUrl: '/assets/typescript_logo.png' },
-    { label: 'Angular', imageUrl: '/assets/angular_logo.png' },
-    { label: 'Rxjs', imageUrl: '/assets/rxjs_logo.png' },
-    { label: 'Angular Router', imageUrl: '/assets/angular_router_logo.png' },
+    { label: 'Vue', imageUrl: '/assets/vue_logo.png' },
+    { label: 'Vuex', imageUrl: '/assets/vuex_logo.png' },
+    { label: 'Vue Router', imageUrl: '/assets/vue_router_logo.png' },
+    { label: 'Vuex Pathify', imageUrl: '/assets/vuex_pathify.png' },
     { label: 'Sass', imageUrl: '/assets/sass_logo.png' }
   ]
 
